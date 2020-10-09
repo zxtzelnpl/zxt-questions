@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=3"> -->
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=2.0, minimum-scale=2.0, maximum-scale=2.0"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=0.5, minimum-scale=0.5, maximum-scale=0.5"> -->
+  <!-- <meta name="viewport" content="width=444, initial-scale=0.5, minimum-scale=0.5, maximum-scale=0.5"> -->
+  <!-- <meta name="viewport" content="width=450, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0"> -->
+  <!-- <meta name="viewport" content="width=450, initial-scale=1.2, minimum-scale=0.2, maximum-scale=2.2"> -->
+  <title>Document</title>
+</head>
+<body>
+  <div id="viewport">
+
+  </div>
+  <input type="text">
+  <div><button id="screen">screen</button><span></span></div>
+  <div><button id="innerWidth">innerWidth</button><span></span></div>
+  <div><button id="documentElement">documentElement</button><span></span></div>
+  <div class="bar"></div>
+  <div class="bar2"></div>
+  <div class="bar3"></div>
+  <div class="bar750"></div>
+  <div class="border">
+
+  </div>
+  <div class="height"></div>
+  <div class="fixed">
+
+  </div>
+</body>
+<style>
+  html {
+    /* width: 600px; */
+
+    /* width: 50%; */
+  }
+  body{
+    margin: 0;
+  }
+  .bar {
+    width: 300px;
+    height: 80px;
+    background: lightblue;
+  }
+  .bar2 {
+    width: 600px;
+    height: 80px;
+    background: lightpink;
+  }
+  .bar3 {
+    width: 1200px;
+    height: 80px;
+    background: red;
+  }
+  .bar750 {
+    width: 750px;
+    height: 80px;
+    background: yellowgreen;
+  }
+  .border {
+    width: 100px;
+    height: 100px;
+    background-image: linear-gradient(#ccc, #ccc), linear-gradient(#ccc, #ccc), linear-gradient(#ccc, #ccc), linear-gradient(#ccc, #ccc);
+    background-repeat: no-repeat;
+    background-size: 100% 1px, 100% 1px, 1px 100%, 1px 100%;
+    background-position: top, bottom, left, right;
+  }
+  .height{
+    height:1000px;
+    width: 5px;
+    background: lime;
+  }
+  .fixed {
+    width: 10px;
+    height: 10px;
+    background: red;
+    position: fixed;
+    left: 20px;
+    top: 20px;
+  }
+</style>
+
+<script>
+  const metaDom = document.querySelector('meta[name="viewport"]')
+  const viewportDiv = document.getElementById('viewport')
+  viewportDiv.innerText = metaDom.outerHTML
+
+  const screenBtn = document.getElementById('screen')
+  screenBtn.addEventListener('click', (e) => {
+    const width = screen.width;
+    const height = screen.height;
+    e.target.nextSibling.innerHTML = `width:${width}, height:${height}`;
+  })
+
+  const innerWidthBtn = document.getElementById('innerWidth')
+  innerWidthBtn.addEventListener('click', (e) => {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    e.target.nextSibling.innerHTML = `width:${width}, height:${height}`;
+  })
+
+  const documentElementBtn = document.getElementById('documentElement')
+  documentElementBtn.addEventListener('click', (e) => {
+    const width = document.documentElement.clientWidth;
+    const height = document.documentElement.clientHeight;
+    e.target.nextSibling.innerHTML = `width:${width}, height:${height}`;
+  })
+</script>
+</html>

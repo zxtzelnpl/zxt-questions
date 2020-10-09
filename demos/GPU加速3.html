@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="a">A</div>
+  <div id="b">B</div>
+</body>
+<style>
+  #a, #b {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+  }
+  #a {
+    top: 30px;
+    left: 30px;
+    z-index: 2;
+    background: red;
+    animation: move 2s linear;
+    transform: translateX(0px) translateZ(0);
+  }
+  #b {
+    left: 10px;
+    top: 10px;
+    z-index: 1;
+    background: blue;
+  }
+  @keyframes move {
+    0% {
+      transform: translateX(0px) translateZ(0);
+      background:red;
+    }
+    50% {
+      transform: translateX(70px) translateZ(0);
+      background:blue;
+    }
+    100% {
+      transform: translateX(0px) translateZ(0);
+      background:red;
+    }
+  }
+</style>
+</html>
